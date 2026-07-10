@@ -1,27 +1,225 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Shubham AI</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shubham AI - Smart AI Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 <body>
+    <div class="container-main">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-brain"></i>
+                <span>Shubham<strong>AI</strong></span>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <button class="new-chat-btn">
+                    <i class="fas fa-plus"></i>
+                    <span>New Chat</span>
+                </button>
+            </nav>
 
-<header>
-    <h1>🤖 Shubham AI</h1>
-    <p>Your AI Assistant</p>
-</header>
+            <div class="sidebar-menu">
+                <div class="menu-item">
+                    <i class="fas fa-message"></i>
+                    <span>New Chat</span>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-clock"></i>
+                    <span>History</span>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-bookmark"></i>
+                    <span>Saved</span>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </div>
+            </div>
 
-<div class="chat-box">
-    <div id="chat">
-        <p><b>AI:</b> Hello! How can I help you?</p>
+            <div class="sidebar-footer">
+                <div class="menu-item logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-left">
+                    <h1 style="font-size: 1.2rem;">Shubham AI</h1>
+                    <p style="font-size: 0.85rem; color: #00d4ff;">⚡ Powered by Next-Gen AI</p>
+                </div>
+                <div class="header-right">
+                    <button class="sign-in-btn">Sign In</button>
+                </div>
+            </header>
+
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h2>Shubham <span class="gradient-text">AI</span></h2>
+                        <p class="hero-subtitle">Smart AI Assistant for Smarter You.</p>
+                        <p class="hero-description">Ask questions, get answers, write content, solve problems and do much more with the power of AI.</p>
+                        
+                        <div class="hero-features">
+                            <div class="feature-item">
+                                <i class="fas fa-bolt"></i>
+                                <span>Fast Responses</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-brain"></i>
+                                <span>Smart Answers</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-lock"></i>
+                                <span>Secure & Private</span>
+                            </div>
+                        </div>
+
+                        <button class="cta-btn">Start Chatting Now <i class="fas fa-arrow-right"></i></button>
+                    </div>
+
+                    <div class="hero-image">
+                        <div class="avatar-circle">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Actions -->
+            <section class="quick-actions">
+                <h3>Hello! How can I help you today?</h3>
+                <div class="actions-grid">
+                    <button class="action-card">
+                        <i class="fas fa-pen"></i>
+                        <span>Explain in simple words</span>
+                    </button>
+                    <button class="action-card">
+                        <i class="fas fa-book"></i>
+                        <span>Write a story</span>
+                    </button>
+                    <button class="action-card">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Help me study</span>
+                    </button>
+                    <button class="action-card">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Give me ideas</span>
+                    </button>
+                    <button class="action-card">
+                        <i class="fas fa-image"></i>
+                        <span>Solve from photo</span>
+                    </button>
+                    <button class="action-card">
+                        <i class="fas fa-code"></i>
+                        <span>Code & Debug</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Chat Interface -->
+            <section class="chat-interface">
+                <div class="chat-box" id="chatBox">
+                    <!-- Messages will appear here -->
+                </div>
+
+                <div class="input-area">
+                    <div class="input-wrapper">
+                        <textarea 
+                            id="userInput" 
+                            placeholder="Type your message..." 
+                            rows="1"
+                            onkeypress="handleKeyPress(event)">
+                        </textarea>
+                        <button class="send-btn" onclick="sendMessage()">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <p class="disclaimer">Shubham AI can make mistakes. Check important info.</p>
+                </div>
+            </section>
+
+            <!-- Pricing Section -->
+            <section class="pricing-section" id="pricing">
+                <h2>Simple, Transparent Pricing</h2>
+                <p>Choose the plan that suits you best.</p>
+                
+                <div class="pricing-container">
+                    <div class="pricing-card">
+                        <div class="pricing-header india">
+                            <i class="fas fa-flag"></i>
+                            <span>India</span>
+                        </div>
+                        <h3>Premium India</h3>
+                        <div class="price">₹299 <span>/month</span></div>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> Unlimited AI Messages</li>
+                            <li><i class="fas fa-check"></i> Priority Access</li>
+                            <li><i class="fas fa-check"></i> Advanced AI Models</li>
+                            <li><i class="fas fa-check"></i> Faster Response</li>
+                            <li><i class="fas fa-check"></i> History & Sync</li>
+                        </ul>
+                        <button class="pricing-btn">Get Premium – India</button>
+                        <p class="cancel-anytime">Cancel anytime</p>
+                    </div>
+
+                    <div class="pricing-card featured">
+                        <div class="pricing-header usa">
+                            <i class="fas fa-flag"></i>
+                            <span>USA</span>
+                        </div>
+                        <h3>Premium USA</h3>
+                        <div class="price">$9.99 <span>/month</span></div>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> Unlimited AI Messages</li>
+                            <li><i class="fas fa-check"></i> Priority Access</li>
+                            <li><i class="fas fa-check"></i> Advanced AI Models</li>
+                            <li><i class="fas fa-check"></i> Faster Response</li>
+                            <li><i class="fas fa-check"></i> History & Sync</li>
+                        </ul>
+                        <button class="pricing-btn">Get Premium – USA</button>
+                        <p class="cancel-anytime">Cancel anytime</p>
+                    </div>
+                </div>
+            </section>
+        </main>
     </div>
 
-    <input id="userInput" placeholder="Ask anything...">
-    <button onclick="sendMessage()">Send</button>
-</div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="logo">
+                    <i class="fas fa-brain"></i>
+                    <span>Shubham<strong>AI</strong></span>
+                </div>
+                <p>© 2024 Shubham AI. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Use</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
 
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
-  </html>
+</html>
